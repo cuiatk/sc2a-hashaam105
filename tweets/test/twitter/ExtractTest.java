@@ -39,6 +39,12 @@ public class ExtractTest {
     }
     
     @Test
+    public void testGetMentionedUsersOneMention()
+    {
+    	assert true;
+    }
+    
+    @Test
     public void testGetMentionedUsersNoMention() {
         Set<String> mentionedUsers = Extract.getMentionedUsers(Arrays.asList(tweet1));
         

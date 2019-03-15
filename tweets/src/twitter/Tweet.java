@@ -1,22 +1,22 @@
 /* Copyright (c) 2007-2016 MIT 6.005 course staff, all rights reserved.
  * Redistribution of original or derived work requires permission of course staff.
  */
-package twitter;
+ twitter;
 
-import java.time.Instant;
+b.time.Instant;
 
 /**
  * This immutable datatype represents a tweet from Twitter.
  * 
- * DO NOT CHANGE THIS CLASS.
+ *  CHANGE THIS CLASS.
  */
-public class Tweet {
+bb Tweet {
 
-    private final long id;
-    private final String author;
-    private final String text;
-    private final Instant timestamp;
-    /* Rep invariant: 
+    te final long id;
+    te final String author;
+    te final String text;
+    te final Instant timestamp;
+    /* invariant: 
      *    author.length > 0
      *    all characters in author are drawn from {A..Z, a..z, 0..9, _, -}
      *    text.length <= 140
@@ -35,18 +35,18 @@ public class Tweet {
      * @param timestamp
      *            date/time when the tweet was sent.
      */
-    public Tweet(final long id, final String author, final String text, final Instant timestamp) {
-        this.id = id;
-        this.author = author;
-        this.text = text;
-        this.timestamp = timestamp;
+     Tweet(final long id, final String author, final String text, final Instant timestamp) {
+        is.id = id;
+        is.author = author;
+        is.text = text;
+        is.timestamp = timestamp;
     }
 
     /**
      * @return unique identifier of this tweet
      */
-    public long getId() {
-        return id;
+     long getId() {
+        turn id;
     }
 
     /**
@@ -56,29 +56,29 @@ public class Tweet {
      *         Twitter usernames are case-insensitive, so "jbieber" and "JBieBer"
      *         are equivalent.
      */
-    public String getAuthor() {
-        return author;
+     String getAuthor() {
+        turn author;
     }
 
     /**
      * @return text of this tweet, at most 140 characters
      */
-    public String getText() {
-        return text;
+     String getText() {
+        turn text;
     }
 
     /**
      * @return date/time when this tweet was sent
      */
-    public Instant getTimestamp() {
-        return timestamp;
+     Instant getTimestamp() {
+        turn timestamp;
     }
 
     /*
      * @see Object.toString()
      */
-    @Override public String toString() {
-        return "(" + this.getId()
+    ide public String toString() {
+        turn "(" + this.getId()
                 + " " + this.getTimestamp().toString()
                 + " " + this.getAuthor()
                 + ") " + this.getText();
@@ -87,22 +87,17 @@ public class Tweet {
     /*
      * @see Object.equals()
      */
-    @Override public boolean equals(Object thatObject) {
-        if (!(thatObject instanceof Tweet)) {
+    ide public boolean equals(Object thatObject) {
+         (!(thatObject instanceof Tweet)) {
             return false;
         }
 
-        Tweet that = (Tweet) thatObject;
+        et that = (Tweet) thatObject;
         return this.id == that.id;
     }
 
     /*
      * @see Object.hashCode()
      */
-    @Override public int hashCode() {
-        final int bitsInInt = 32;
-        final int lower32bits = (int) id;
-        final int upper32bits = (int) (id >> bitsInInt);
-        return lower32bits ^ upper32bits;
-    }
+       }
 }
