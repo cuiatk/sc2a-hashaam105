@@ -31,7 +31,7 @@ public class Extract {
    
     public static Set<String> getMentionedUsers(List<Tweet> tweets) {
        Instant start = tweets.get(0)getTimestamp();
-       Instant end = tweets.get(tweets.size()-1)).getTimestamp();
+       Instant end = tweets.get(tweets.size()-1).getTimestamp();
        Timespan t = new Timespan(start,end);
        return t;
     }

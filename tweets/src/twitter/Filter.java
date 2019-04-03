@@ -27,7 +27,25 @@ public class Filter {
      *         in the same order as in the input list.
      */
     public static List<Tweet> writtenBy(List<Tweet> tweets, String username) {
-        throw new RuntimeException("not implemented");
+        
+    	List<Tweet> tweetWrittenBy = new ArrayList();
+    	if(tweets.isEmpty()){
+    		System.out.println("Empty list");
+    		return tweetWrittenBy;
+    	}
+    	else
+    	{
+    		for(int i=0;i<tweets.size();i++)
+    		{
+    			Tweet tweet = tweets.get(i);
+    			if(tweets.getAuthor().contains(username)){
+    				
+    				tweetWrittenBy.add(tweet);
+    			}
+    			
+    		}
+    		return tweetWrittenBy;
+    	}
     }
 
     /**
@@ -41,7 +59,25 @@ public class Filter {
      *         in the same order as in the input list.
      */
     public static List<Tweet> inTimespan(List<Tweet> tweets, Timespan timespan) {
-        throw new RuntimeException("not implemented");
+    	List<Tweet> tweetsintimeSpan = new ArrayList<>();
+   	 if(tweets.isEmpty())
+   	 {
+   		 return tweetsintimeSpan;
+   	 }
+   	 else
+   	 {
+   		 for (Tweet tweet : tweets) {
+            
+             if (tweet.getTimestamp().isBefore(timespan.getEnd()) && tweet.getTimestamp().isAfter(timespan.getStart())) {
+                  tweetsintimeSpan.add(tweet);
+                }
+            }
+   		 return tweetsintimeSpan;
+
+   	 }
+       
+        
+   
     }
 
     /**
@@ -60,7 +96,25 @@ public class Filter {
      *         same order as in the input list.
      */
     public static List<Tweet> containing(List<Tweet> tweets, List<String> words) {
-        throw new RuntimeException("not implemented");
+    	List<String> loweredList = new ArrayList<>();
+        for (String lowered : words) {
+            loweredList.add(lowered.toLowerCase());
+        }
+
+        List<Tweet> tweetsWithKeyWords = new ArrayList<>();
+        for (Tweet tweet : tweets) {
+         
+        	  for (int j=0;j<loweredList.size();j++) {
+        		  if (tweet.getText().toLowerCase().contains(loweredList.get(j))) {
+        			  tweetsWithKeyWords.add(tweet);
+                      break;
+            	  }
+        	  }
+          
+        }
+        
+        return tweetsWithKeyWords;
     }
+    
 
 }
